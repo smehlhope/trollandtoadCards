@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="col-lg-12 text-center">
+    <h1>Cards Uploaded from <a href="http://www.trollandtoad.com/">TrollandToad.com</a></h1>
+    <p><em>Remember, these files are HUGE. If you push "Import CSV" <small>(at the bottom of the page)</small> and you don't immediately receive an error</em></p>
+    <p><em>LET THE SERVER SPIN.</em></p>
+  </div>
+  <div class="col-lg-8 col-lg-offset-2">
+    <h3>Search Cards <small><em>Suggested</em></small></h3>
+    <%= form_tag(root_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Cards" %>
+    <%= button_tag('Search', type: 'submit', class: "btn btn-primary")  %>
+    <% end %>
+  </div>
+
+  <%= flash[:notice] %>
+  <% if @cards.present? %>
+    <%= render '/cards/cards' %>
+  <% else %>
+    <p>There are no cards containing the term(s) <%= params[:search] %>.</p>
+  <% end %>
+
+  <div class="col-lg-8 col-lg-offset-2">
+  <h3>Import a CSV File</h3>
+    <%= form_tag import_cards_path, :class => "form-inline", multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= button_tag("Import CSV", type: 'submit', class: "btn btn-primary") %>
+    <% end %>
+  </div>
+</div>
