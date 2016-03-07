@@ -4,7 +4,7 @@
     <p><em>Remember, these files are HUGE. If you push "Import CSV" <small>(at the bottom of the page)</small> and you don't immediately receive an error</em></p>
     <p><em>LET THE SERVER SPIN.</em></p>
   </div>
-  <div class="col-lg-8 col-lg-offset-2">
+  <div class="col-lg-8 col-lg-offset-1">
     <h3>Search Cards <small><em>Suggested</em></small></h3>
     <%= form_tag(root_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Cards" %>
@@ -21,7 +21,7 @@
     <% end %>
   </div>
 
-  <div class="col-lg-8 col-lg-offset-2">
+  <div class="col-lg-8 col-lg-offset-1">
   <h3>Import a CSV File</h3>
     <%= form_tag import_cards_path, :class => "form-inline", multipart: true do %>
       <%= file_field_tag :file %>
