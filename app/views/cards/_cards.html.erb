@@ -1,23 +1,24 @@
-<%= will_paginate @cards, :renderer => WillPaginate::ActionView::LinkRenderer %>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Set</th>
-      <th>Edition</th>
-      <th>Condition</th>
-      <th>Buy Price</th>
-      <th>Buy Quantity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @cards.each do |card| %>
+<div class="col-lg-12">
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= card.set %></td>
-        <td><%= card.edition %></td>
-        <td><%= card.condition %></td>
-        <td><%= number_to_currency(card.buy_price) %></td>
-        <td><%= card.buy_quantity %></td>
+        <th>Set</th>
+        <th>Edition</th>
+        <th>Condition</th>
+        <th>Buy Price</th>
+        <th>Buy Quantity</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @cards.each do |card| %>
+        <tr>
+          <td><%= card.set %></td>
+          <td><%= card.edition %></td>
+          <td><%= card.condition %></td>
+          <td><%= number_to_currency(card.buy_price) %></td>
+          <td><%= card.buy_quantity %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

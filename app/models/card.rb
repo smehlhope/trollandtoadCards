@@ -22,12 +22,9 @@ class Card < ActiveRecord::Base
 
 
   def self.search(search)
-	  where('edition ILIKE ?', "%#{search}%")
-	  where('set ILIKE ?', "%#{search}%")
-	  where('condition ILIKE ?', "%#{search}%")
-	  where('buy_price ILIKE ?', "%#{search}%")
+	  where("edition ILIKE ? OR set ILIKE ? OR condition ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
 	end
 
-	WillPaginate.per_page = 100
+	# WillPaginate.per_page = 250
 
 end
