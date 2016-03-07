@@ -10,6 +10,7 @@
     <%= text_field_tag :search, params[:search], placeholder: "Search Cards" %>
     <%= button_tag('Search', type: 'submit', class: "btn btn-primary")  %>
     <% end %>
+    <a href="/cards">Reload Page</a>
   </div>
 
   <%= flash[:notice] %>
